@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 public class livro
 {
@@ -27,7 +28,7 @@ class Program
         Console.WriteLine("5 - Sair");
     }
 
-    public static void CadastrarLivro(int senha){
+    public static void CadastrarLivro(int senha, List<livro> livros){
         if (senha == 1234)
         {
             Console.WriteLine("Acesso concedido. Por favor, informe os dados do livro:");
@@ -65,6 +66,7 @@ class Program
                 preco = double.Parse(Console.ReadLine());
             }
             livro novoLivro = new livro(titulo, autor, genero, preco);
+            livros.Add(novoLivro);
             Console.WriteLine("Livro cadastrado com sucesso!");
         }
         else
@@ -87,6 +89,16 @@ class Program
         livro l7 = new livro("Anne Frank: A Historia de uma Vida", "Anne Frank", "Biografia", 24.90);
         livro l8 = new livro("Eu Sou Malala", "Malala Yousafzai", "Biografia", 29.90);
 
+        List<livro> livros = new List<livro>();
+        livros.Add(l1);
+        livros.Add(l2);
+        livros.Add(l3);
+        livros.Add(l4);
+        livros.Add(l5);
+        livros.Add(l6);
+        livros.Add(l7);
+        livros.Add(l8);
+
         bool sair = true;
         while (sair)        {
             MostrarMenu();
@@ -99,14 +111,57 @@ class Program
                     Console.WriteLine("Bem-vindo ao cadastro de livros!");
                     Console.WriteLine("Poderia me informar sua senha de acesso? (Digite '1234' para acessar o cadastro)");
                     int senha = int.Parse(Console.ReadLine());
-                    CadastrarLivro(senha);
-                    // AINDA VAI FALTAR ADICIONAR A MECÂNICA DA LISTA DE LIVROS DENTRO DO CADASTRO, MAS DE RESTO ESTÁ FUNCIONANDO
+                    CadastrarLivro(senha, livros);
                     break;
                 case 2:
-                    // Lógica para listar livros
+                    Console.WriteLine("Como deseja listar os livros?");
+                    Console.WriteLine("1 - Todos");
+                    Console.WriteLine("2 - Por genero");
+                    int tipoLista = int.Parse(Console.ReadLine());
+
+                    if (tipoLista == 1)
+                    {
+                        foreach (livro item in livros)
+                        {
+                            Console.WriteLine("Titulo: " + item.titulo + " | Autor: " + item.autor + " | Genero: " + item.genero + " | Preco: R$ " + item.preco);
+                        }
+                    }
+                    else if (tipoLista == 2)
+                    {
+                        Console.Write("Digite o genero que deseja listar: ");
+                        string generoBusca = Console.ReadLine();
+
+                        foreach (livro item in livros)
+                        {
+                            if (item.genero == generoBusca)
+                            {
+                                Console.WriteLine("Titulo: " + item.titulo + " | Autor: " + item.autor + " | Genero: " + item.genero + " | Preco: R$ " + item.preco);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Opcao invalida.");
+                    }
                     break;
                 case 3:
-                    // Lógica para buscar livro
+                    Console.Write("Digite o nome do livro ou autor para buscar: ");
+                    string textoBusca = Console.ReadLine();
+                    bool encontrou = false;
+
+                    foreach (livro item in livros)
+                    {
+                        if (item.titulo.Contains(textoBusca) || item.autor.Contains(textoBusca))
+                        {
+                            Console.WriteLine("Titulo: " + item.titulo + " | Autor: " + item.autor + " | Genero: " + item.genero + " | Preco: R$ " + item.preco);
+                            encontrou = true;
+                        }
+                    }
+
+                    if (encontrou == false)
+                    {
+                        Console.WriteLine("Nenhum livro encontrado.");
+                    }
                     break;
                 case 4:
                     // Lógica para carrinho de compras
