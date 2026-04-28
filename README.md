@@ -1,5 +1,5 @@
-# livraria_projeto
-**De: Heverton Ricardo e Caio Lamers.**
+# **livraria_projeto**
+#**De: Heverton Ricardo e Caio Lamers.**
 O nosso projeto se consiste em um sistema de verificação, cadastro e compra de uma pequena livraria, no qual o usuário pode interagir com a interface e utilizar das operações para simular de uma forma mais simplificada a busca e compra de livros por título, autor e gênero.
 
  **Instruções de execução**
