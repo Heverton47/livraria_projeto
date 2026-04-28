@@ -1,12 +1,13 @@
 # **livraria_projeto**
-#**De: Heverton Ricardo e Caio Lamers.**
+**De: Heverton Ricardo e Caio Lamers.**
+
 O nosso projeto se consiste em um sistema de verificação, cadastro e compra de uma pequena livraria, no qual o usuário pode interagir com a interface e utilizar das operações para simular de uma forma mais simplificada a busca e compra de livros por título, autor e gênero.
 
  **Instruções de execução**
 
 1. Abra o terminal na pasta onde está o arquivo do projeto.
 2. Compile e execute o programa.
-3. 4. O menu da livraria aparecerá no console e você poderá navegar pelas opções.
+3. O menu da livraria aparecerá no console e você poderá navegar pelas opções.
 **Alguns detalhes**
 - Para cadastrar livros, use a senha **1234** quando solicitado.
 - O preço mínimo aceito para cadastro é **R$ 10,00**.
