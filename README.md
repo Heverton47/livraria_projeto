@@ -15,11 +15,11 @@ O nosso projeto se consiste em um sistema de verificação, cadastro e compra de
 A interface deve guiar o usuário através da livraria, por meio de uma teia de opções, como se pode observar por meio da interface:
 
 **===== LIVRARIA =====**
-**1 - Cadastrar livro**
-**2 - Listar livros**
-**3 - Buscar livro**
-**4 - Carrinho de compras**   
-**5 - Sair**
+- **1 - Cadastrar livro**
+- **2 - Listar livros**
+- **3 - Buscar livro**
+- **4 - Carrinho de compras**   
+- **5 - Sair**
 
 **Cada número dentre estes que o usuário digitar o levará para sua respectiva operação, como:**
 
