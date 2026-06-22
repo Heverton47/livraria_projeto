@@ -36,6 +36,28 @@ public class Carrinho{
 
     Console.WriteLine("\nValor Total: " + this.valorTotal);
   }
+
+  public void finalizarCompra(){
+    if(this.qnt == 0){
+      Console.WriteLine("Carrinho vazio! Adicione livros antes de finalizar.");
+      return;
+    }
+
+    double totalFinal = 0;
+
+    Console.WriteLine("\nLivros comprados:\n");
+    foreach(livro produto in itens){
+      Console.WriteLine("Titulo: " + produto.titulo + " | Autor: " + produto.autor + " | Genero: " + produto.genero + " | Preco: R$ " + produto.preco);
+      totalFinal += produto.preco;
+    }
+
+    Console.WriteLine("\nTotal final da compra: R$ " + totalFinal);
+    Console.WriteLine("Compra finalizada com sucesso!");
+
+    itens.Clear();
+    this.qnt = 0;
+    this.valorTotal = 0;
+  }
 }
 
 class Program{
@@ -240,7 +262,19 @@ class Program{
 
         case 4:
         c1.mostrarCarrinho();
-        //Provavelmente agora é o ideal apresentar a opção de finalizar a compra e dar a opção de voltar(os métodos referentes ao carrinho estou tentando fazer na classe carrinho)
+        Console.WriteLine("\n1 - Finalizar compra");
+        Console.WriteLine("2 - Voltar");
+        int opcaoCarrinho = int.Parse(Console.ReadLine());
+
+        if(opcaoCarrinho == 1){
+          c1.finalizarCompra();
+        }
+        else if(opcaoCarrinho == 2){
+          Console.WriteLine("Retornando...");
+        }
+        else{
+          Console.WriteLine("Opcao invalida.");
+        }
         break;
 
         case 5:
